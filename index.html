@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ателье — ремонт, подгонка и пошив одежды в Екатеринбурге</title>
+  <meta name="description" content="Ремонт, подгонка и пошив одежды. Прайс-лист и онлайн-запись на удобное время.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="#top" data-brand>Ателье</a>
+  <nav aria-label="Основное меню">
+    <a href="#services">Услуги</a>
+    <a href="#booking">Запись</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <a class="top-phone" data-phone-link href="#contacts"></a>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <h1>Подгоним, починим, сошьём</h1>
+    <p class="lead">Ремонт и пошив одежды в Екатеринбурге. Выберите услугу, время — и мы ждём вас в ателье.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#booking">Записаться</a>
+      <a class="btn btn-ghost" href="#services">Смотреть цены</a>
+    </div>
+  </section>
+
+  <div class="tape" id="tape" aria-hidden="true"></div>
+
+  <section id="services" class="block">
+    <h2>Услуги и цены</h2>
+    <p class="note">Цена зависит от ткани и сложности — точную стоимость назовём при осмотре вещи.</p>
+    <div class="chips" id="chips" role="tablist" aria-label="Категории услуг"></div>
+    <ul class="pricelist" id="pricelist"></ul>
+  </section>
+
+  <section id="booking" class="block block-tint">
+    <div class="booking-wrap">
+      <div class="booking-intro">
+        <h2>Онлайн-запись</h2>
+        <p>Выберите услугу, дату и время. Мы подтвердим запись по телефону или в мессенджере.</p>
+        <p class="note" data-hours-text></p>
+      </div>
+
+      <form id="bookingForm" class="form" novalidate>
+        <label for="service">Услуга</label>
+        <select id="service" name="service" required></select>
+
+        <label for="date">Дата</label>
+        <input type="date" id="date" name="date" required>
+        <p class="hint" id="dateHint" role="status"></p>
+
+        <fieldset class="slots-field">
+          <legend>Время</legend>
+          <div class="slots" id="slots"><p class="hint">Сначала выберите дату.</p></div>
+        </fieldset>
+
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+
+        <label for="phone">Телефон</label>
+        <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 900 000-00-00" required>
+
+        <label for="comment">Комментарий <span class="opt">(необязательно)</span></label>
+        <textarea id="comment" name="comment" rows="3" placeholder="Например: брюки из шерсти, нужно укоротить на 4 см"></textarea>
+
+        <p class="error" id="formError" role="alert"></p>
+        <button class="btn btn-primary btn-wide" type="submit">Записаться</button>
+      </form>
+
+      <div class="done" id="done" hidden>
+        <h3>Почти готово</h3>
+        <p id="doneSummary"></p>
+        <p>Запись будет отправлена, когда вы нажмёте кнопку ниже.</p>
+        <a class="btn btn-primary btn-wide" id="waBtn" target="_blank" rel="noopener">Отправить в WhatsApp</a>
+        <a class="btn btn-ghost btn-wide" id="tgBtn" target="_blank" rel="noopener" hidden>Отправить в Telegram</a>
+        <button class="linkbtn" id="againBtn" type="button">Записать ещё одну вещь</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="block">
+    <h2>Контакты</h2>
+    <dl class="contacts">
+      <div><dt>Адрес</dt><dd><a data-address-link target="_blank" rel="noopener"></a></dd></div>
+      <div><dt>Телефон</dt><dd><a data-phone-link></a></dd></div>
+      <div><dt>Часы работы</dt><dd data-hours-text></dd></div>
+    </dl>
+  </section>
+</main>
+
+<footer class="foot">
+  <span data-brand>Ателье</span>
+  <span>© <span id="year"></span></span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
